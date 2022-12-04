@@ -1,0 +1,26 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "difference calculator",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmokieEyes/frontend-project-46.git"
+  },
+  "author": "Lusi Mur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SmokieEyes/frontend-project-46/issues"
+  },
+  "homepage": "https://github.com/SmokieEyes/frontend-project-46#readme",
+  "dependencies": {
+    "commander": "^9.4.1"
+  },
+  "devDependencies": {
+    "@types/commander": "^2.12.2"
+  }
+}
