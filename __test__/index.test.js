@@ -1,11 +1,26 @@
 import gendiff from '../src/index.js';
-import resultJSON from '../__fixtures__/resultJSON.js';
-import resultYAML from '../__fixtures__/resultYAML.js';
+import stylishRef from '../__fixtures__/stylishRef.js';
 
-test('JSON json test', () => {
-  expect(gendiff('./__fixtures__/file1.json', './__fixtures__/file2.json')).toEqual(resultJSON);
+test('stylish JSON test', () => {
+  expect(gendiff('./__fixtures__/file1.json', './__fixtures__/file2.json', 'stylish')).toEqual(stylishRef);
 });
 
-test('YAML yaml test', () => {
-  expect(gendiff('./__fixtures__/file1.yml', './__fixtures__/file2.yml')).toEqual(resultYAML);
+test('stylish YML test', () => {
+  expect(gendiff('./__fixtures__/file1.yml', './__fixtures__/file2.yml', 'stylish')).toEqual(stylishRef);
+});
+
+test('stylish YAML test', () => {
+  expect(gendiff('./__fixtures__/file1.yaml', './__fixtures__/file2.yaml', 'stylish')).toEqual(stylishRef);
+});
+
+test('stylish JSON YML test', () => {
+  expect(gendiff('./__fixtures__/file1.json', './__fixtures__/file2.yml', 'stylish')).toEqual(stylishRef);
+});
+
+test('Default Format yml test', () => {
+  expect(gendiff('./__fixtures__/file1.yml', './__fixtures__/file2.yml')).toEqual(stylishRef);
+});
+
+test('Default Format json test', () => {
+  expect(gendiff('./__fixtures__/file1.json', './__fixtures__/file2.json')).toEqual(stylishRef);
 });
