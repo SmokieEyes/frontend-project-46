@@ -1,6 +1,7 @@
 import gendiff from '../src/index.js';
 import stylishRef from '../__fixtures__/stylishRef.js';
 import plainRef from '../__fixtures__/plainRef.js';
+import jsonRef from '../__fixtures__/jsonRef.js';
 
 test('stylish JSON test', () => {
   expect(gendiff('./__fixtures__/file1.json', './__fixtures__/file2.json', 'stylish')).toEqual(stylishRef);
@@ -32,6 +33,14 @@ test('plain YML yml test', () => {
 
 test('plain YAML YAML test', () => {
   expect(gendiff('./__fixtures__/file1.yaml', './__fixtures__/file2.yaml', 'plain')).toEqual(plainRef);
+});
+
+test('JSON json test', () => {
+  expect(gendiff('./__fixtures__/file1.yml', './__fixtures__/file2.yml', 'json')).toEqual(jsonRef);
+});
+
+test('JSON YML test', () => {
+  expect(gendiff('./__fixtures__/file1.json', './__fixtures__/file2.yml', 'json')).toEqual(jsonRef);
 });
 
 test('Default Format yml test', () => {
