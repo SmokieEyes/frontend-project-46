@@ -8,3 +8,5 @@ Step 3
 <a href="https://asciinema.org/a/WEGRyVnckQJBODLILrlpBKYtc" target="_blank"><img src="https://asciinema.org/a/WEGRyVnckQJBODLILrlpBKYtc.svg" /></a>
 Step 6
 <a href="https://asciinema.org/a/cWNpMHb6X8DwficM2AIdTmbYQ" target="_blank"><img src="https://asciinema.org/a/cWNpMHb6X8DwficM2AIdTmbYQ.svg" /></a>
+Step 7
+<a href="https://asciinema.org/a/LqCH14T8SuKxOtouMhcvylHWa" target="_blank"><img src="https://asciinema.org/a/LqCH14T8SuKxOtouMhcvylHWa.svg" /></a>

@@ -2,7 +2,7 @@ import { cwd } from 'node:process';
 import { resolve } from 'node:path';
 import _ from 'lodash';
 import parsers from './parsers.js';
-import formatMakeDiff from './formatters/stylish.js';
+import formatMakeDiff from './formatters/index.js';
 
 const getFilePath = (filepath) => resolve(cwd(), filepath);
 const getSortUnionKeys = (file1, file2) => _.sortBy(_.union(_.keys(file1), _.keys(file2)));
