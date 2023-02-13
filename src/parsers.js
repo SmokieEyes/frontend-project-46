@@ -9,4 +9,4 @@ const parsers = (filepath) => {
   return JSON.parse(readFileSync(filepath, 'utf-8'));
 };
 
-export default parsers ;
+export default parsers;
