@@ -1,7 +1,5 @@
 import { readFileSync } from 'node:fs';
 
-const parsers = (filepath) => {
-return JSON.parse(readFileSync(filepath, 'utf-8'));
-};
+const parsers = (filepath) => JSON.parse(readFileSync(filepath, 'utf-8'));
 
-export { parsers };
+export default parsers;

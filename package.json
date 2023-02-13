@@ -11,7 +11,7 @@
   },
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -24,11 +24,18 @@
   },
   "homepage": "https://github.com/SmokieEyes/frontend-project-46#readme",
   "devDependencies": {
+    "babel-jest": "^29.4.1",
     "commander": "^10.0.0",
     "eslint": "^8.33.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-import": "^2.27.5",
     "jest": "^29.4.1",
-    "lodash": "^4.17.21"
+    "jest-cli": "^29.4.1"
+  },
+  "dependencies": {
+    "commander": "^10.0.0",
+    "lodash": "^4.17.21",
+    "eslint-plugin-jest": "^27.2.1"
   }
 }

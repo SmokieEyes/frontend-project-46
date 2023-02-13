@@ -1,5 +1,14 @@
-install:
+install: # install
 	npm ci
 	
-lint:
-	npx eslint . --fix
+lint: # lint
+	npx eslint .
+	
+publish: # publish
+	npm publish --dry-run
+
+test: # test
+	npm test
+
+test-coverage: # test --coverage
+	npm test -- --coverage
