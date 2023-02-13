@@ -19,7 +19,11 @@
 
 <b align="center">Install</b><br/>
 git clone https://github.com/SmokieEyes/fullstack-javascript-project-46.git <br/>
-npm link<br/>
+make install<br/>
+<br/>
 
 <b align="center">Launch</b>
-<p>gendiff <\option> <\format> <\path1> <\path2\></p>
+<p>For help</p><br/>
+<p>gendiff -h</p><br/>
+<br/>
+<p>gendiff option format path1 path2</p>
