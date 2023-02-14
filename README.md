@@ -5,7 +5,7 @@
 ![example workflow](https://github.com/SmokieEyes/frontend-project-46/actions/workflows/git-check.yml/badge.svg)
 <hr>
 <h1 align="center">Gendiff Utility</h1>
-<p align="center">The utility allows you to compare 2 files by relative and absolute paths. Outputs differences in three formats: </p>
+<p align="center">The utility allows you to compare 2 files (JSON, YAML) by relative and absolute paths. Outputs differences in three formats: </p>
 
 <ol>
 <li><p style="font-style: italic; font-weight: bold">Stylish</p></li>
