@@ -10,7 +10,7 @@
 <ol>
 <li><p style="font-style: italic; font-weight: bold">Stylish</p></li>
 <li><p style="font-style: italic; font-weight: bold">Plain</li> 
-<li><p style="font-style: italic; font-weight: bold">JSON</p></li>
+<li><p style="font-style: italic; font-weight: bold">JSON string</p></li>
 </ol>
 <hr>
 <h1 align="center">Demonstration!</h1>
