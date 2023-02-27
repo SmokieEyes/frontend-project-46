@@ -19,26 +19,21 @@ const checkObj = (data, depth) => {
   return buildStyleTree(lines, depth);
 };
 
-const setLinesPlusMinus = (mark, name, value, depth) => `${curIndent(depth)}${mark} ${name.name}: ${checkObj(value, depth + 1)}`;
-const displayAdded = (value, depth) => setLinesPlusMinus(plus, value, value.value, depth);
-const displayRemoved = (value, depth) => setLinesPlusMinus(minus, value, value.value, depth);
-const displayСhanged = (value, depth) => [
-  setLinesPlusMinus(minus, value, value.oldValue, depth),
-  setLinesPlusMinus(plus, value, value.newValue, depth),
-];
-const displayUnchanged = (value, depth) => setLinesPlusMinus(indent, value, value.value, depth);
-
 const actionBasedOnStatus = (value, depth) => {
+  const setStringLines = (mark, name, val, dep) => `${curIndent(dep)}${mark} ${name.name}: ${checkObj(val, dep + 1)}`;
   if (value.status === 'added') {
-    return displayAdded(value, depth);
+    return setStringLines('+', value, value.value, depth);
   }
   if (value.status === 'removed') {
-    return displayRemoved(value, depth);
+    return setStringLines('-', value, value.value, depth);
   }
   if (value.status === 'changed') {
-    return displayСhanged(value, depth);
+    return [
+      setStringLines('-', value, value.oldValue, depth),
+      setStringLines('+', value, value.newValue, depth),
+    ];
   }
-  return displayUnchanged(value, depth);
+  return setStringLines(indent, value, value.value, depth);
 };
 
 const formsATree = (value, depth) => {
