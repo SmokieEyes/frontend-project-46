@@ -1,7 +1,5 @@
 import _ from 'lodash';
 
-const plus = '+';
-const minus = '-';
 const indent = ' ';
 const indentSize = 4;
 const forBracket = 2;
