@@ -13,17 +13,17 @@
 <li><p style="font-style: italic; font-weight: bold">JSON string</p></li>
 </ol>
 <hr>
-<h1 align="center">Demonstration!</h1>
+<h1 align="center">Demo</h1>
 <a href="https://asciinema.org/a/2EwwhpM37mfPVewRxUrzxhW7g" target="_blank"><img src="https://asciinema.org/a/2EwwhpM37mfPVewRxUrzxhW7g.svg" /></a>
 <hr>
 
-<b align="center">Install</b><br/>
-git clone https://github.com/SmokieEyes/fullstack-javascript-project-46.git <br/>
-make install<br/>
-<br/>
+<b align="center">Install</b><br>
+git clone https://github.com/SmokieEyes/fullstack-javascript-project-46.git <br>
+make install<br>
+<br>
 
 <b align="center">Launch</b>
-<p>For help</p><br/>
-<p>gendiff -h</p><br/>
-<br/>
+<p>For help</p><br>
+<p>gendiff -h</p><br>
+<br>
 <p>gendiff option format path1 path2</p>
