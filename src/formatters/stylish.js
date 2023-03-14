@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
 const indent = { base: ' ', size: 4, length: 2 };
+const sign = { plus: '+', minus: '-' };
 const curIndent = (depth) => indent.base.repeat(indent.size * depth - indent.length);
 const bracketIndent = (depth) => indent.base.repeat(indent.size * depth - indent.size);
 const buildStringTree = (lines, depth) => ['{', ...lines, `${bracketIndent(depth)}}`].join('\n');
@@ -11,10 +12,13 @@ const checkObj = (data, depth) => {
 const stylishTree = (dataTree, deepness = 1) => {
   const makeLineByStatus = (key, depth) => {
     const setStringLines = (mark, name, value, deep) => `${curIndent(deep)}${mark} ${name.name}: ${checkObj(value, deep + 1)}`;
-    if (key.status === 'added') return setStringLines('+', key, key.value, depth);
-    if (key.status === 'removed') return setStringLines('-', key, key.value, depth);
-    if (key.status === 'unchanged') return setStringLines(' ', key, key.value, depth);
-    return [setStringLines('-', key, key.oldValue, depth), setStringLines('+', key, key.newValue, depth)];
+    if (key.status === 'added') return setStringLines(sign.plus, key, key.value, depth);
+    if (key.status === 'removed') return setStringLines(sign.minus, key, key.value, depth);
+    if (key.status === 'unchanged') return setStringLines(indent.size, key, key.value, depth);
+    return [
+      setStringLines(sign.minus, key, key.oldValue, depth),
+      setStringLines(sign.plus, key, key.newValue, depth),
+    ];
   };
 
   const buildTree = (value, depth) => {
