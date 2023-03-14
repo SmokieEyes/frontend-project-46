@@ -26,6 +26,19 @@ const setStatusOfKey = (data1, data2, key) => {
   }
   return o.addStatus(key, data1[key], o.prop.unchanged);
 };
+
+const buildPlain = (lines) => [...lines].join('\n');
+
+const checkType = (data) => {
+  if (typeof data === 'string') return `'${data}'`;
+  if (_.isObject(data)) return '[complex value]';
+  return data;
+};
+
+const displayAdded = (child, path) => `Property '${path}' was added with value: ${checkType(child.value)}`;
+const displayСhanged = (child, path) => `Property '${path}' was updated. From ${checkType(child.oldValue)} to ${checkType(child.newValue)}`;
+const displayRemoved = (path) => `Property '${path}' was removed`;
+
 export {
   curIndent,
   getFilePath,
@@ -34,4 +47,8 @@ export {
   checkObj,
   buildStringTree,
   setStatusOfKey,
+  displayAdded,
+  displayСhanged,
+  displayRemoved,
+  buildPlain,
 };

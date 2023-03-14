@@ -1,25 +1,15 @@
-import _ from 'lodash';
+import * as u from '../utility/utility.js';
+import * as o from '../utility/objects.js';
 
-const buildPlain = (lines) => [...lines].join('\n');
-const checkType = (data) => {
-  if (typeof data === 'string') return `'${data}'`;
-  if (_.isObject(data)) return '[complex value]';
-  return data;
-};
-
-const displayAdded = (child, path) => `Property '${path}' was added with value: ${checkType(child.value)}`;
-const displayСhanged = (child, path) => `Property '${path}' was updated. From ${checkType(child.oldValue)} to ${checkType(child.newValue)}`;
-const displayRemoved = (path) => `Property '${path}' was removed`;
-
-const actionBasedOnStatus = (child, path) => {
-  if (child.status === 'added') {
-    return displayAdded(child, path);
+const makeLineByStatus = (child, path) => {
+  if (child.status === o.prop.added) {
+    return u.displayAdded(child, path);
   }
-  if (child.status === 'changed') {
-    return displayСhanged(child, path);
+  if (child.status === o.prop.changed) {
+    return u.displayСhanged(child, path);
   }
-  if (child.status === 'removed') {
-    return displayRemoved(path);
+  if (child.status === o.prop.removed) {
+    return u.displayRemoved(path);
   }
   return null;
 };
@@ -27,14 +17,14 @@ const makePlain = (data) => {
   const getPlainFormat = (nodes, path) => {
     const lines = nodes
       .map((node) => {
-        const curPath = [path, node.name].flat().join('.');
-        if (node.status === 'nested') {
-          return getPlainFormat(node.children, curPath);
+        const currentPath = [path, node.name].flat().join('.');
+        if (node.status === o.prop.nested) {
+          return getPlainFormat(node.children, currentPath);
         }
-        return actionBasedOnStatus(node, curPath);
+        return makeLineByStatus(node, currentPath);
       })
       .filter((node) => node !== null);
-    return buildPlain(lines);
+    return u.buildPlain(lines);
   };
   const move = (node, path) => getPlainFormat(node.children, path);
   return move(data, []);
