@@ -36,7 +36,7 @@ const getDiffTree = (file1, file2) => {
     });
     return inserted;
   };
-  return ({ status: ' ', children: getDifference(file1, file2) });
+  return ({ status: '', children: getDifference(file1, file2) });
 };
 
 const gendiff = (filepath1, filepath2, formatName = 'stylish') => {
