@@ -1,32 +1,24 @@
-import _ from 'lodash';
+import * as u from '../utility/utility.js';
+import * as o from '../utility/objects.js';
 
-const indent = { base: ' ', size: 4, length: 2 };
-const sign = { plus: '+', minus: '-' };
-const curIndent = (depth) => indent.base.repeat(indent.size * depth - indent.length);
-const bracketIndent = (depth) => indent.base.repeat(indent.size * depth - indent.size);
-const buildStringTree = (lines, depth) => ['{', ...lines, `${bracketIndent(depth)}}`].join('\n');
-const checkObj = (data, depth) => {
-  if (!_.isObject(data)) return data;
-  return buildStringTree(_.keys(data).map((key) => `${curIndent(depth)}  ${key}: ${checkObj(data[key], depth + 1)}`), depth);
-};
 const makeLineByStatus = (key, depth) => {
-  const setStringLines = (mark, name, value, deep) => `${curIndent(deep)}${mark} ${name.name}: ${checkObj(value, deep + 1)}`;
-  if (key.status === 'added') return setStringLines(sign.plus, key, key.value, depth);
-  if (key.status === 'removed') return setStringLines(sign.minus, key, key.value, depth);
-  if (key.status === 'unchanged') return setStringLines(indent.base, key, key.value, depth);
+  const setStringLines = (mark, name, value, deep) => `${u.curIndent(deep)}${mark} ${name.name}: ${u.checkObj(value, deep + 1)}`;
+  if (key.status === o.prop.added) return setStringLines(o.sign.plus, key, key.value, depth);
+  if (key.status === o.prop.removed) return setStringLines(o.sign.minus, key, key.value, depth);
+  if (key.status === o.prop.unchanged) return setStringLines(o.indent.base, key, key.value, depth);
   return [
-    setStringLines(sign.minus, key, key.oldValue, depth),
-    setStringLines(sign.plus, key, key.newValue, depth),
+    setStringLines(o.sign.minus, key, key.oldValue, depth),
+    setStringLines(o.sign.plus, key, key.newValue, depth),
   ];
 };
 const stylishTree = (dataTree, deepness = 1) => {
   const buildTree = (value, depth) => {
-    if (value.status === '') {
-      return buildStringTree(value.children.flatMap((child) => buildTree(child, depth)), depth);
+    if (value.status === o.prop.empty) {
+      return u.buildStringTree(value.children.flatMap((child) => buildTree(child, depth)), depth);
     }
-    if (value.status === 'nested') {
+    if (value.status === o.prop.nested) {
       const checkingDeeper = value.children.flatMap((child) => buildTree(child, depth + 1));
-      return `${curIndent(depth)}  ${value.name}: ${buildStringTree(checkingDeeper, depth + 1)}`;
+      return `${u.curIndent(depth)}  ${value.name}: ${u.buildStringTree(checkingDeeper, depth + 1)}`;
     }
     return makeLineByStatus(value, depth);
   };
