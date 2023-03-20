@@ -1,18 +1,19 @@
-import * as u from '../utility/utility.js';
 import * as o from '../utility/objects.js';
+import * as l from '../utility/lines.js';
 
 const makeLineByStatus = (child, path) => {
   if (child.status === o.prop.added) {
-    return u.displayAdded(child, path);
+    return l.displayAdded(child, path);
   }
   if (child.status === o.prop.changed) {
-    return u.displayСhanged(child, path);
+    return l.displayСhanged(child, path);
   }
   if (child.status === o.prop.removed) {
-    return u.displayRemoved(path);
+    return l.displayRemoved(path);
   }
   return null;
 };
+
 const makePlain = (data) => {
   const getPlainFormat = (nodes, path) => {
     const lines = nodes
@@ -24,7 +25,7 @@ const makePlain = (data) => {
         return makeLineByStatus(node, currentPath);
       })
       .filter((node) => node !== null);
-    return u.buildPlain(lines);
+    return l.buildPlain(lines);
   };
   const move = (node, path) => getPlainFormat(node.children, path);
   return move(data, []);
