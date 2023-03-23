@@ -10,7 +10,7 @@ const prop = {
 
 const ind = { base: ' ', size: 4, toTheLeft: 2 };
 const symb = { plus: '+', minus: '-', colon: ':' };
-const bracket = { opening: '{', closing: '}' };
+const bracket = { opening: '{', closing: '}', quo: "'" };
 
 const stringMes = {
   begin: 'Property',

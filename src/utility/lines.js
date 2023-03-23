@@ -22,11 +22,11 @@ const checkType = (data) => {
   return data;
 };
 
-const displayAdded = (child, path) => `${o.stringMes.begin} '${path}' ${o.stringMes.add} ${checkType(child.value)}`;
+const displayAdded = (child, path) => `${o.stringMes.begin}${o.ind.base}${o.bracket.quo}${path}${o.bracket.quo}${o.ind.base}${o.stringMes.add}${o.ind.base}${checkType(child.value)}`;
 
-const displayСhanged = (child, path) => `${o.stringMes.begin} '${path}' ${o.stringMes.upd} ${checkType(child.oldValue)} ${o.stringMes.prep} ${checkType(child.newValue)}`;
+const displayСhanged = (child, path) => `${o.stringMes.begin}${o.ind.base}${o.bracket.quo}${path}${o.bracket.quo}${o.ind.base}${o.stringMes.upd}${o.ind.base}${checkType(child.oldValue)}${o.ind.base}${o.stringMes.prep}${o.ind.base}${checkType(child.newValue)}`;
 
-const displayRemoved = (path) => `${o.stringMes.begin} '${path}' ${o.stringMes.removed}`;
+const displayRemoved = (path) => `${o.stringMes.begin}${o.ind.base}${o.bracket.quo}${path}${o.bracket.quo}${o.ind.base}${o.stringMes.removed}`;
 
 const buildPlain = (lines) => [...lines].join('\n');
 
