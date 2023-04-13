@@ -4,7 +4,7 @@ import * as l from '../utility/lines.js';
 const makeLineByStatus = (key, depth) => {
   if (key.status === o.prop.added) return l.setStringLines(o.symb.plus, key, key.value, depth);
   if (key.status === o.prop.removed) return l.setStringLines(o.symb.minus, key, key.value, depth);
-  if (key.status === o.prop.unchanged) return l.setStringLines(o.ind.base, key, key.value, depth);
+  if (key.status === o.prop.unchanged) return l.setStringLines(o.space.base, key, key.value, depth);
   return [
     l.setStringLines(o.symb.minus, key, key.oldValue, depth),
     l.setStringLines(o.symb.plus, key, key.newValue, depth),

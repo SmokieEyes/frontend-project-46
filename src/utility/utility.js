@@ -12,15 +12,15 @@ const setStatusOfKey = (data1, data2, key) => {
   if (!_.has(data1, key)) return o.addStatus(key, data2[key], o.prop.added);
   if (!_.has(data2, key)) return o.addStatus(key, data1[key], o.prop.removed);
   if (!_.isEqual(data1[key], data2[key])) {
-    return o.combiSt(key, data1[key], data2[key], o.prop.changed);
+    return o.combinedStatus(key, data1[key], data2[key], o.prop.changed);
   }
   return o.addStatus(key, data1[key], o.prop.unchanged);
 };
 
 // ----Stylish----
-const prefixIndent = (depth) => o.ind.base.repeat(o.ind.size * depth - o.ind.toTheLeft);
+const prefixIndent = (depth) => o.space.base.repeat(o.space.size * depth - o.space.toTheLeft);
 
-const bracketIndent = (depth) => o.ind.base.repeat(o.ind.size * depth - o.ind.size);
+const bracketIndent = (depth) => o.space.base.repeat(o.space.size * depth - o.space.size);
 
 export {
   prefixIndent,

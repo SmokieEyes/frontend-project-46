@@ -8,7 +8,7 @@ const prop = {
   complex: '[complex value]',
 };
 
-const ind = { base: ' ', size: 4, toTheLeft: 2 };
+const space = { base: ' ', size: 4, toTheLeft: 2 };
 const symb = { plus: '+', minus: '-', colon: ':' };
 const bracket = { opening: '{', closing: '}', quo: "'" };
 
@@ -20,7 +20,7 @@ const stringMes = {
   prep: 'to',
 };
 
-const combiSt = (v, v1, v2, stat) => ({
+const combinedStatus = (v, v1, v2, stat) => ({
   name: v,
   oldValue: v1,
   newValue: v2,
@@ -35,10 +35,10 @@ const root = (child) => ({ status: prop.empty, children: child });
 
 export {
   prop,
-  ind,
+  space,
   symb,
   bracket,
-  combiSt,
+  combinedStatus,
   nested,
   addStatus,
   root,

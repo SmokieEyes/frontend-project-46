@@ -5,16 +5,16 @@ import * as o from './utility/objects.js';
 import * as u from './utility/utility.js';
 
 const getDiffTree = (file1, file2) => {
-  const getDifference = (data1, data2) => {
+  const getDiff = (data1, data2) => {
     const inserted = u.getSortUnionKeys(data1, data2).map((key) => {
       if (_.isPlainObject(data1[key]) && _.isPlainObject(data2[key])) {
-        return o.nested(key, getDifference(data1[key], data2[key]));
+        return o.nested(key, getDiff(data1[key], data2[key]));
       }
       return u.setStatusOfKey(data1, data2, key);
     });
     return inserted;
   };
-  return o.root(getDifference(file1, file2));
+  return o.root(getDiff(file1, file2));
 };
 
 const gendiff = (filepath1, filepath2, formatName = 'stylish') => {
