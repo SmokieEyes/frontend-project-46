@@ -23,7 +23,6 @@ make install<br>
 <br>
 
 <b align="center">Launch</b>
-<p>For help</p><br>
-<p>gendiff -h</p><br>
+<p>For help: gendiff -h</p>
 <br>
-<p>gendiff option format path1 path2</p>
+<p>Usage: gendiff [options] &ltfilepath1&gt &ltfilepath2&gt</p>
